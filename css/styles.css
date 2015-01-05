@@ -1,0 +1,178 @@
+/* -------------------------------------------------- General style --------------------------------------------------*/
+body {
+    margin: 0px;
+    background: #b5ffaa;
+    min-width: 800px;
+}
+
+*:focus {
+    outline: none;
+}
+
+/* ------------------------------------------------- Style of header -------------------------------------------------*/
+header {
+    padding: 20px 50px;
+    background: #25803a;
+    border-bottom: 17px dotted #ffffff;
+    color: #ffffff;
+    font-family: Tahoma;
+}
+
+header h1 {
+    display: inline-block;
+}
+
+header input {
+    margin-top: 14px;
+    float: right;
+    color: #000000;
+}
+
+#speed{
+    width: 145px;
+    padding: 10px;
+}
+
+#slideshow {
+    margin-top: 14px;
+    padding-bottom: 8px;
+    border: 2px solid #ffffff;
+}
+
+/* ------------------------------------------------ Style of container -----------------------------------------------*/
+.wrapper {
+    text-align: center;
+}
+
+.actionsDiv {
+    width: 800px;
+    margin: 20px auto;
+}
+
+input,
+select {
+    margin: 5px 8px;
+    padding: 10px 18px;
+    border: 1px solid gray;
+}
+
+.actionsDiv select {
+    margin-right: 85px;
+}
+
+input[type="button"] {
+    margin: 5px 8px;
+    padding: 10px 55px;
+    background: #25803a;
+    color: #ffffff;
+    font-family: Tahoma;
+    font-weight: bold;
+    box-shadow: 3px 3px 3px grey;
+    border-radius: 5px;
+}
+
+input[type="button"]:hover {
+    background: #008000;
+    box-shadow: 3px 3px 3px grey, inset 0px 0px 10px yellow;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------ Style of table -----------------------------------------------*/
+table {
+    width: 100%;
+    border: 2px solid #008000;
+    border-spacing: 0px;
+}
+
+tr {
+    border: 2px solid #008000;
+}
+
+td {
+    position: relative;
+    padding: 10px 5px;
+    border-right: 1px dashed #000000;
+    border-left: 1px dashed #000000;
+    text-align: center;
+    vertical-align: top;
+    font-size: 12px;
+}
+
+table img {
+    width: 240px;
+    height: 200px;
+    margin-bottom: 5px;
+    border: 1px solid gray;
+    box-shadow: 4px 3px 4px black;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------ Style of pagination -----------------------------------------------*/
+.pagination {
+    border: 1px solid #25803a;
+    cursor: pointer;
+}
+
+.pagination>.active>a {
+    background-color: #25803a;
+    border: 1px dashed #000000;
+}
+
+.pagination li> a {
+    padding: 8px 15px;
+    color: #25803a;
+}
+
+/* ------------------------------------------------ Style of slideshow  -----------------------------------------------*/
+.slideshow {
+    width: 752px;
+    margin: 0px auto;
+    position: relative;
+}
+
+.slideshow img {
+    width: 600px;
+    margin: 15px 0px;
+    border: 7px dotted white;
+    box-shadow: 2px 2px 4px grey;
+}
+
+#prev {
+    border-radius: 25px 5px 5px 25px;
+    padding: 20px;
+}
+
+#next {
+    border-radius: 5px 25px 25px 5px;
+    padding: 20px;
+}
+
+#close {
+    position: absolute;
+    right: 35px;
+    top: 8px;
+    padding: 4px 10px;
+    /*background: red;*/
+    border-radius: 5px 50% 50% 5px;
+}
+
+input[type="button"].delete {
+    position: absolute;
+    display: none;
+    width: 50px;
+    height: 50px;
+    right: 50%;
+    top: 50%;
+    margin: -35px -25px 0px 0px;
+    padding: 0px;
+    background: red;
+}
+
+td:hover input[type="button"].delete,
+#imgDiv:hover input[type="button"].delete {
+    display: block;
+}
+
+#imgDiv {
+    display: inline-block;
+}

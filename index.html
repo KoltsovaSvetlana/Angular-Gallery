@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="gallery">
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>Angular Application</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <link href="css/lib/bootstrap.min.css?version=1.0" rel="stylesheet">
+        <link rel="stylesheet" href="css/styles.css?version=1.0" />
+    </head>
+    <body  ng-controller="galleryController">
+        <header>
+            <h1>GALLERY</h1>
+            <input id="speed" type="number" ng-model="speed" step="500" min="0" placeholder="Enter speed (ms)"/>
+            <input id="slideshow" ng-click="startSlideshow()" type="button" value="Start/Stop slideshow"/>
+        </header>
+        <div class="wrapper" >
+            <div ng-hide="show">
+                <div class="actionsDiv">
+                    Page size:
+                    <select ng-model="entryLimit">
+                        <option>5</option>
+                        <option>10</option>
+                        <option>15</option>
+                        <option>20</option>
+                    </select>
+                    Sorting by:
+                    <select ng-model="predicate" ng-change="sortBy(predicate)">
+                        <option>title &uarr;</option>
+                        <option>title &darr;</option>
+                        <option>date &uarr;</option>
+                        <option>date &darr;</option>
+                    </select>
+                    Search:
+                    <input type="search" ng-model="searchText" ng-change="search(searchText)" placeholder="Enter string for search"/>
+                </div>
+                <table>
+                    <tr ng-repeat="imagesRow in imagesData | startFrom:(currentPage-1)*entryLimit/rowSize | limitTo:entryLimit/rowSize">
+                        <td ng-repeat="image in imagesRow">
+                            <img ng-src="{{ image.url }}" err-src="{{defaultImg}}" alt="{{image.title}}" title="{{image.title}}" ng-click="openImg(image)"/><br/>
+                            <input class="delete" title="Delete" type="button" ng-click="deleteImg(image)" value="x"/>
+                            <span>{{image.date}}</span><br/>
+                        </td>
+                    </tr>
+                </table>
+                <pagination total-items="totalItems" items-per-page="entryLimit" page="currentPage" on-select-page="setPage(page)" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false"></pagination>
+            </div>
+            <div ng-show="show" class="slideshow">
+                <input id="prev" type="button" ng-click="prevImg()" value="<"/>
+                <div id="imgDiv">
+                    <img ng-src="{{currImg.url}}" err-src="{{defaultImg}}" alt="{{currImg.title}}" />
+                    <input class="delete" title="Delete" type="button" ng-click="deleteImg(currImg)" value="x"/>
+                </div>
+                <input id="next" type="button" ng-click="nextImg()" value=">"/>
+                <input id="close" title="Close" type="button" ng-click="closeImg()" value="x"/>
+            </div>
+        </div>
+
+        <script src="js/src/angular.js?version=1.0"></script>
+        <script src="js/src/ngStorage.min.js?version=1.0"></script>
+        <script src="js/src/ui-bootstrap-tpls-0.10.0.min.js?version=1.0"></script>
+        <script src="js/app.js?version=1.0"></script>
+    </body>
+</html>
